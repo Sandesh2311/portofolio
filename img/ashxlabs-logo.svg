@@ -1,0 +1,35 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#000000"/>
+  <defs>
+    <linearGradient id="a-left" x1="255" y1="572" x2="395" y2="278" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5E2CC7"/>
+      <stop offset="0.55" stop-color="#2478E7"/>
+      <stop offset="1" stop-color="#32C5FF"/>
+    </linearGradient>
+    <linearGradient id="a-right" x1="445" y1="563" x2="573" y2="395" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D61C86"/>
+      <stop offset="1" stop-color="#F32786"/>
+    </linearGradient>
+    <linearGradient id="a-swoosh" x1="252" y1="541" x2="534" y2="439" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5E2CC7"/>
+      <stop offset="0.52" stop-color="#A635B9"/>
+      <stop offset="1" stop-color="#F32786"/>
+    </linearGradient>
+    <linearGradient id="labs-blue" x1="940" y1="519" x2="1286" y2="519" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#269BFF"/>
+      <stop offset="1" stop-color="#2C68E4"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M382 277C389 266 405 266 412 277L475 392L408 455L385 413L275 575L240 633L307 607L420 538L452 599L266 690C251 697 235 681 243 666L382 277Z" fill="url(#a-left)"/>
+  <path d="M501 417H552L478 501L533 604H474L426 514L501 417Z" fill="url(#a-right)"/>
+  <path d="M266 574C352 554 431 500 508 416H552C475 517 378 587 241 634L266 574Z" fill="url(#a-swoosh)"/>
+
+  <path d="M610 602L688 438H737L815 602H762L747 563H676L660 602H610ZM692 525H731L711 468L692 525Z" fill="#F8F7F5"/>
+  <path d="M830 438H877V493C888 480 906 472 929 472C974 472 1006 501 1006 546C1006 589 975 617 929 617C906 617 888 608 877 593V602H830V438ZM917 580C941 580 959 566 959 545C959 523 941 509 917 509C893 509 875 523 875 545C875 566 893 580 917 580Z" fill="#F8F7F5"/>
+  <path d="M1027 602L1096 534L1030 473H1087L1126 513L1164 473H1220L1155 534L1226 602H1168L1126 557L1083 602H1027Z" fill="#F8F7F5"/>
+
+  <path d="M1244 438H1292V563H1369V602H1244V438Z" fill="url(#labs-blue)"/>
+  <path d="M1379 602L1457 473H1506L1584 602H1531L1516 563H1445L1429 602H1379ZM1461 525H1500L1480 468L1461 525Z" fill="url(#labs-blue)"/>
+  <path d="M1600 560C1600 589 1574 617 1529 617C1498 617 1471 606 1452 587L1478 558C1494 573 1510 580 1529 580C1544 580 1554 575 1554 566C1554 558 1548 554 1523 549L1500 545C1468 539 1451 522 1451 494C1451 462 1478 442 1523 442C1551 442 1576 450 1594 466L1569 496C1552 483 1538 478 1523 478C1508 478 1499 484 1499 493C1499 501 1504 505 1528 510L1551 514C1585 521 1600 536 1600 560Z" fill="url(#labs-blue)"/>
+</svg>
