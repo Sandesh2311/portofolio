@@ -31,12 +31,30 @@
             scroll-behavior: smooth;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: 'Inter', 'Space Grotesk', sans-serif;
             background: radial-gradient(circle at 20% 30%, #151525 0%, #0a0b1b 50%, #05060f 100%);
             color: var(--text-primary);
             overflow-x: hidden;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        section {
+            width: 100%;
         }
 
         .vanta-bg {
@@ -48,7 +66,8 @@
         }
 
         .container {
-            max-width: 1200px;
+            width: min(100% - 2rem, 1200px);
+            margin-inline: auto;
         }
 
         .gradient-text {
@@ -106,6 +125,8 @@
             gap: 0.5rem;
             border: 1px solid transparent;
             backdrop-filter: blur(10px);
+            min-height: 44px;
+            text-align: center;
         }
 
         .btn-primary {
@@ -208,6 +229,200 @@
             background: rgba(6, 8, 21, 0.64);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-shell {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            min-height: 84px;
+            padding-block: 1rem;
+        }
+
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+            max-width: min(100%, 18rem);
+            line-height: 1.1;
+        }
+
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .menu-toggle {
+            display: none;
+            min-width: 44px;
+            min-height: 44px;
+            padding: 0.65rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(18, 20, 38, 0.82);
+            color: var(--text-primary);
+        }
+
+        .menu-toggle:hover {
+            border-color: rgba(0, 212, 255, 0.55);
+            background: rgba(22, 24, 48, 0.92);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 120;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            background: rgba(3, 5, 16, 0.72);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .mobile-menu-panel {
+            width: min(100%, 24rem);
+            min-height: 100dvh;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background: rgba(9, 11, 27, 0.96);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: -24px 0 48px rgba(0, 0, 0, 0.32);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.open .mobile-menu-panel {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .mobile-menu-links a {
+            display: flex;
+            align-items: center;
+            min-height: 48px;
+            padding: 0.85rem 1rem;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid transparent;
+        }
+
+        .mobile-menu-links a:hover,
+        .mobile-menu-links a.active {
+            background: rgba(127, 90, 240, 0.12);
+            border-color: rgba(0, 212, 255, 0.22);
+        }
+
+        .hero-layout,
+        .about-layout,
+        .contact-layout,
+        .footer-layout {
+            gap: clamp(1.5rem, 3vw, 4rem);
+        }
+
+        .hero-copy,
+        .hero-visual,
+        .about-media,
+        .about-copy,
+        .contact-copy,
+        .contact-form-wrap {
+            min-width: 0;
+        }
+
+        .hero-copy p,
+        .about-copy p,
+        .contact-copy p,
+        .project-card p {
+            overflow-wrap: break-word;
+        }
+
+        .hero-portrait {
+            width: min(100%, 340px);
+            aspect-ratio: 1 / 1;
+        }
+
+        .about-photo {
+            width: min(100%, 260px);
+            aspect-ratio: 1 / 1;
+        }
+
+        .about-points {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-thumb {
+            min-height: 12rem;
+        }
+
+        .contact-methods,
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contact-methods {
+            gap: 0.75rem;
+        }
+
+        .contact-method {
+            flex: 1 1 180px;
+            min-width: 0;
+        }
+
+        .social-links {
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(31, 41, 55, 0.9);
+            overflow: hidden;
+        }
+
+        .social-link img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
         }
 
         .nav-link {
@@ -403,6 +618,172 @@
             .fade-in,
             .fade-up { opacity: 1; transform: translateY(0); animation: none; }
         }
+
+        @media (max-width: 1024px) {
+            .container {
+                width: min(100% - 2rem, 960px);
+            }
+
+            .nav-desktop {
+                gap: 1.25rem;
+            }
+
+            .hero-layout {
+                padding-block: 5rem;
+            }
+
+            .hero-portrait {
+                width: min(100%, 300px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: min(100% - 1.5rem, 100%);
+            }
+
+            .custom-cursor {
+                display: none;
+            }
+
+            .typing {
+                white-space: normal;
+                border-right: none;
+            }
+
+            .nav-shell {
+                min-height: 72px;
+                padding-block: 0.85rem;
+            }
+
+            .brand-link {
+                max-width: 13rem;
+                font-size: 1.2rem;
+            }
+
+            .nav-desktop {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+            }
+
+            .hero-layout,
+            .about-layout,
+            .contact-layout,
+            .footer-layout {
+                flex-direction: column;
+            }
+
+            .hero-layout {
+                padding-block: 4rem 3rem;
+                text-align: center;
+            }
+
+            .hero-copy p {
+                margin-inline: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-visual,
+            .about-media {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .about-card,
+            .contact-form,
+            .skill-card {
+                padding: 1.25rem;
+            }
+
+            .about-layout,
+            .footer-layout {
+                text-align: center;
+            }
+
+            .about-points {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-method {
+                flex-basis: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: min(100% - 1rem, 100%);
+            }
+
+            .brand-link {
+                max-width: 11rem;
+                font-size: 1.05rem;
+            }
+
+            .mobile-menu-panel {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .hero-layout {
+                padding-block: 3.5rem 2.75rem;
+            }
+
+            .hero-copy h1 {
+                font-size: 2.2rem;
+                line-height: 1.05;
+            }
+
+            .hero-copy h2 {
+                font-size: 1.15rem;
+                min-height: 3.5rem;
+            }
+
+            .hero-copy p,
+            .about-copy p,
+            .contact-copy p,
+            .project-card p {
+                font-size: 0.95rem;
+            }
+
+            .hero-actions a,
+            .mobile-menu-links a,
+            .contact-form button {
+                width: 100%;
+            }
+
+            .hero-portrait {
+                width: min(100%, 250px);
+            }
+
+            .about-photo {
+                width: min(100%, 220px);
+            }
+
+            .project-thumb {
+                min-height: 10rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (hover: none) {
+            .project-card:hover,
+            .skill-card:hover,
+            .contact-card:hover,
+            .about-card:hover,
+            .hero-card:hover,
+            .btn-primary:hover {
+                transform: none;
+            }
+        }
     </style>
 </head>
 
@@ -415,51 +796,57 @@
     <div id="vanta-bg" class="vanta-bg"></div>
 
     <!-- Navigation -->
-    <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold gradient-text">Sandesh's Portofolio</a>
-        <div class="hidden md:flex items-center space-x-8">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <a href="resume/Sandesh-Mishra-Resume.pdf" download class="btn-secondary text-sm">Resume <i data-feather="download" class="ml-1"></i></a>
+    <nav>
+        <div class="container nav-shell">
+            <a href="#home" class="text-2xl font-bold gradient-text brand-link">Sandesh's Portofolio</a>
+            <div class="nav-desktop">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="resume/Sandesh-Mishra-Resume.pdf" download class="btn-secondary text-sm">Resume <i data-feather="download" class="ml-1"></i></a>
+            </div>
+            <button class="menu-toggle focus:outline-none" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+                <i data-feather="menu"></i>
+            </button>
         </div>
-        <button class="md:hidden focus:outline-none" id="menu-btn">
-            <i data-feather="menu"></i>
-        </button>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu"
-        class="hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex flex-col items-center justify-center">
-        <button class="absolute top-6 right-6 focus:outline-none" id="close-btn">
-            <i data-feather="x"></i>
-        </button>
-        <div class="flex flex-col space-y-8 text-center">
-            <a href="#home" class="text-2xl font-medium nav-link active">Home</a>
-            <a href="#about" class="text-2xl font-medium nav-link">About</a>
-            <a href="#projects" class="text-2xl font-medium nav-link">Projects</a>
-            <a href="#skills" class="text-2xl font-medium nav-link">Skills</a>
-            <a href="#contact" class="text-2xl font-medium nav-link">Contact</a>
-            <a href="resume/Sandesh-Mishra-Resume.pdf" download class="btn-secondary">Download Resume <i data-feather="download" class="ml-1"></i></a>
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-panel">
+            <div class="mobile-menu-top">
+                <a href="#home" class="text-xl font-bold gradient-text">Sandesh's Portofolio</a>
+                <button class="menu-toggle focus:outline-none" id="close-btn" type="button" aria-label="Close navigation menu">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-links text-left">
+                <a href="#home" class="text-lg font-medium nav-link active">Home</a>
+                <a href="#about" class="text-lg font-medium nav-link">About</a>
+                <a href="#projects" class="text-lg font-medium nav-link">Projects</a>
+                <a href="#skills" class="text-lg font-medium nav-link">Skills</a>
+                <a href="#contact" class="text-lg font-medium nav-link">Contact</a>
+                <a href="resume/Sandesh-Mishra-Resume.pdf" download class="btn-secondary">Download Resume <i data-feather="download" class="ml-1"></i></a>
+            </div>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-12 md:mb-0 fade-up" data-fade>
+    <section id="home" class="container hero-layout px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
+        <div class="hero-copy md:w-1/2 mb-12 md:mb-0 fade-up" data-fade>
             <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Hi, I&#39;m <span class="gradient-text">Sandesh</span></h1>
             <h2 id="typed-text" class="text-2xl md:text-3xl font-semibold mb-6 text-gray-300 typing"></h2>
             <p class="text-lg mb-8 text-gray-300 max-w-lg">I build modern and impactful web experiences with pixel-perfect UI, smooth animations, and high performance. Let&#39;s create something exceptional together.</p>
-            <div class="flex flex-wrap gap-4">
+            <div class="hero-actions flex flex-wrap gap-4">
                 <a href="#projects" class="btn-primary">View Projects</a>
                 <a href="resume/Sandesh-Mishra-Resume.pdf" download class="btn-outline">Download Resume <i data-feather="download" class="ml-1"></i></a>
                 <a href="#contact" class="btn-secondary">Contact Me</a>
             </div>
         </div>
-        <div class="md:w-1/2 flex justify-center fade-in" data-fade>
-            <div class="relative floating" style="width: 340px; height: 340px;">
+        <div class="hero-visual md:w-1/2 flex justify-center fade-in" data-fade>
+            <div class="hero-portrait relative floating">
                 <div class="rounded-full overflow-hidden border-4 border-purple-500/20 shadow-xl" style="width: 100%; height: 100%;">
                     <img src="img/me.jpeg" alt="Profile" class="w-full h-full object-cover">
                 </div>
@@ -472,13 +859,13 @@
         <div class="container mx-auto px-6">
             <div class="about-card glass p-8">
                 <h2 class="text-3xl font-bold mb-12 text-center section-title"><span class="gradient-text">About</span> Me</h2>
-                <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <div class="w-64 h-64 rounded-lg overflow-hidden">
+                <div class="about-layout flex flex-col md:flex-row items-center">
+                <div class="about-media md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="about-photo rounded-lg overflow-hidden">
                         <img src="img/meeeee.jpeg" alt="About" class="w-full h-full object-cover">
                     </div>
                 </div>
-                <div class="md:w-2/3 md:pl-12">
+                <div class="about-copy md:w-2/3 md:pl-12">
                     <h3 class="text-2xl font-medium mb-4">Who am I?</h3>
                     <p class="text-gray-400 mb-6">
                         I’m an engineering student and an enthusiastic Frontend Developer passionate about creating
@@ -500,7 +887,7 @@
                             class="text-purple-400 hover:text-purple-300 transition">ASHX Labs</a>, where I build
                         modern web and AI-powered tools.
                     </p>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="about-points mb-8">
                         <div class="flex items-center">
                             <i data-feather="check-circle" class="text-purple-500 mr-2"></i>
                             <span>Clean Code</span>
@@ -531,10 +918,10 @@
     <section id="projects" class="py-20">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center">My <span class="gradient-text">Projects</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
                 <div class="project-card bg-gray-900 rounded-xl overflow-hidden transition duration-300 fade-up" data-fade>
-                    <div class="h-48 overflow-hidden">
+                    <div class="project-thumb h-48 overflow-hidden">
                         <img src="img/zomato.jpg" alt="Project 1" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
@@ -557,7 +944,7 @@
 
                 <!-- Project 2 -->
                 <div class="project-card bg-gray-900 rounded-xl overflow-hidden transition duration-300 fade-up" data-fade>
-                    <div class="h-48 overflow-hidden">
+                    <div class="project-thumb h-48 overflow-hidden">
                         <img src="img/todo.webp" alt="Project 2" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
@@ -578,7 +965,7 @@
                 </div>
                 <!-- Project : FRIDAY Voice Assistant -->
                 <div class="project-card bg-gray-900 rounded-xl overflow-hidden transition duration-300 fade-up" data-fade>
-                    <div class="h-48 overflow-hidden">
+                    <div class="project-thumb h-48 overflow-hidden">
                         <img src="img/ChatGPT Image Feb 7, 2026, 06_04_24 PM.png" alt="FRIDAY Voice Assistant" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
@@ -601,7 +988,7 @@
 
                 <!-- Project 3 -->
                 <div class="project-card bg-gray-900 rounded-xl overflow-hidden transition duration-300 fade-up" data-fade>
-                    <div class="h-48 overflow-hidden">
+                    <div class="project-thumb h-48 overflow-hidden">
                         <img src="img/calculator.webp" alt="Project 3" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
@@ -622,7 +1009,7 @@
                     </div>
                 </div>
                 <div class="project-card bg-gray-900 rounded-xl overflow-hidden transition duration-300 fade-up" data-fade>
-                    <div class="h-48 overflow-hidden">
+                    <div class="project-thumb h-48 overflow-hidden">
                         <img src="img/aiiii.png" alt="AI Portfolio Generator"
                             class="w-full h-full object-cover">
                     </div>
@@ -645,7 +1032,7 @@
                     </div>
                 </div>
                 <div class="project-card bg-gray-900 rounded-xl overflow-hidden transition duration-300 fade-up" data-fade>
-                    <div class="h-48 overflow-hidden bg-black p-4">
+                    <div class="project-thumb h-48 overflow-hidden bg-black p-4">
                         <img src="img/ashxx.png" alt="AshX Labs" class="w-full h-full object-contain">
                     </div>
                     <div class="p-6">
@@ -724,30 +1111,30 @@
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center"><span class="gradient-text">Contact</span> Me</h2>
 
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+            <div class="contact-layout flex flex-col md:flex-row">
+                <div class="contact-copy md:w-1/2 mb-8 md:mb-0 md:pr-8">
                     <h3 class="text-xl font-medium mb-4">Let's Talk About Your Project</h3>
                     <p class="text-gray-400 mb-6">
                         I'm currently available for freelance work. If you have a project you want to get started,
                         think you need my help with something, or just want to say hi, get in touch.
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-                        <a href="mailto:sandeshmishra1980@gmail.com" class="contact-card glass p-4 flex items-center gap-3">
+                    <div class="contact-methods grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                        <a href="mailto:sandeshmishra1980@gmail.com" class="contact-method contact-card glass p-4 flex items-center gap-3">
                             <span class="icon-badge"><i data-feather="mail"></i></span>
                             <div>
                                 <p class="text-sm font-semibold">Email</p>
                                 
                             </div>
                         </a>
-                        <a href="https://wa.me/916395054127" target="_blank" class="contact-card glass p-4 flex items-center gap-3">
+                        <a href="https://wa.me/916395054127" target="_blank" class="contact-method contact-card glass p-4 flex items-center gap-3">
                             <span class="icon-badge"><i data-feather="message-circle"></i></span>
                             <div>
                                 <p class="text-sm font-semibold">WhatsApp</p>
                                 
                             </div>
                         </a>
-                        <a href="https://www.linkedin.com/in/sandesh-mishra-704150328" target="_blank" class="contact-card glass p-4 flex items-center gap-3">
+                        <a href="https://www.linkedin.com/in/sandesh-mishra-704150328" target="_blank" class="contact-method contact-card glass p-4 flex items-center gap-3">
                             <span class="icon-badge"><i data-feather="linkedin"></i></span>
                             <div>
                                 <p class="text-sm font-semibold">LinkedIn</p>
@@ -768,27 +1155,27 @@
                         </div>
                     </div>
 
-                    <div class="flex space-x-4 mt-8">
+                    <div class="social-links mt-8">
                         <a href="https://github.com/Sandesh2311"
-                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-500 transition">
+                            class="social-link hover:bg-purple-500 transition">
                             <i data-feather="github"></i>
                         </a>
                         <!-- <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-500 transition">
                             <i data-feather="twitter"></i>
                         </a> -->
                         <a href="https://www.linkedin.com/in/sandesh-mishra-704150328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-500 transition">
+                            class="social-link hover:bg-purple-500 transition">
                             <i data-feather="linkedin"></i>
                         </a>
                         <a href="https://www.instagram.com/sandeshmishra1512?igsh=MWMwajQyeHc0NG1seg=="
-                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-500 transition">
-                            <img src="img/insta.webp" alt=""> <i data-feather="Instagram"></i>
+                            class="social-link hover:bg-purple-500 transition">
+                            <img src="img/insta.webp" alt="Instagram">
                         </a>
                     </div>
                 </div>
 
-                <div class="md:w-1/2">
-                    <form action="https://formspree.io/f/mjkawngz" method="POST" class="space-y-4 glass p-6">
+                <div class="contact-form-wrap md:w-1/2">
+                    <form action="https://formspree.io/f/mjkawngz" method="POST" class="contact-form space-y-4 glass p-6">
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium">Your Name</label>
                             <input type="text" id="name" name="name" required
@@ -826,7 +1213,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 py-12">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="footer-layout flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <a href="#" class="text-2xl font-bold gradient-text">Sandesh's Portofolio</a>
                     <p class="text-gray-400 mt-2">© 2026 All rights reserved.</p>
@@ -867,14 +1254,28 @@
         const closeBtn = document.getElementById('close-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        });
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+            menuBtn.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('menu-open');
+        }
 
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('menu-open');
+        }
+
+        menuBtn.addEventListener('click', openMobileMenu);
+
+        closeBtn.addEventListener('click', closeMobileMenu);
+
+        mobileMenu.addEventListener('click', (event) => {
+            if (event.target === mobileMenu) {
+                closeMobileMenu();
+            }
         });
 
         // Smooth scrolling for navigation links
@@ -890,9 +1291,20 @@
                 }
 
                 // Close mobile menu if open
-                mobileMenu.classList.add('hidden');
-                document.body.style.overflow = 'auto';
+                closeMobileMenu();
             });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeMobileMenu();
+            }
         });
 
         // Highlight active nav link data
