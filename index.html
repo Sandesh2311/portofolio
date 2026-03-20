@@ -368,6 +368,10 @@
             aspect-ratio: 1 / 1;
         }
 
+        .desktop-only-image {
+            display: block;
+        }
+
         .about-photo {
             width: min(100%, 260px);
             aspect-ratio: 1 / 1;
@@ -624,6 +628,10 @@
                 width: min(100% - 2rem, 960px);
             }
 
+            .desktop-only-image {
+                display: none;
+            }
+
             .nav-desktop {
                 gap: 1.25rem;
             }
@@ -846,7 +854,7 @@
             </div>
         </div>
         <div class="hero-visual md:w-1/2 flex justify-center fade-in" data-fade>
-            <div class="hero-portrait relative floating">
+            <div class="hero-portrait relative floating desktop-only-image">
                 <div class="rounded-full overflow-hidden border-4 border-purple-500/20 shadow-xl" style="width: 100%; height: 100%;">
                     <img src="img/me.jpeg" alt="Profile" class="w-full h-full object-cover">
                 </div>
